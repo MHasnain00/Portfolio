@@ -1,0 +1,78 @@
+.resume {
+  height: 100%;
+  width: 100%;
+}
+.education {
+  height: 100%;
+  /* height: 74%; */
+  width: 100%; 
+  display: flex;
+}
+.side-line {
+  height: 90%;
+  width: 3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.vert-line {
+  height: 41%;
+  width: 0.08rem;
+  background-color: rgb(59, 57, 19);
+  display: inline;
+}
+.edu-icon, .exp-icon {
+  margin: 0px;
+}
+.exp-icon {
+  margin-top: 4.1rem;
+}
+.line-circle {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: rgb(110, 110, 43);
+  display: inline;
+
+}
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.2rem;
+}
+.line1 {
+  height: 2.6%;
+}
+.line2 {
+  height: 19.3%;
+}
+.line3 {
+  height: 19.5%;
+}
+.line4 {
+  height: 2.5%;
+}
+.content h2 {
+  margin: 1rem 0rem 0rem 0rem;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 0.09rem;
+}
+.year {
+  margin: 0.3rem 0rem 0rem 0rem;
+  color: rgb(133, 133, 37);
+}
+.edu-details {
+  color: rgb(202, 200, 200);
+  text-align: left;
+  margin: 0.4rem 1rem 0rem 0rem;
+}
+.dae, .matric, .bsse {
+  margin: 0.7rem 0rem 0rem 0rem;
+}
