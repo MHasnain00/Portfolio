@@ -59,7 +59,6 @@
   color: rgb(233, 233, 161);
   font-size: large;
 }
-
 .desc {
   height: 5rem;
   width: 15rem;
@@ -70,5 +69,47 @@
 .desc p {
   margin-bottom: 0.5rem;
   line-height: 1.2rem;
+}
+@media (min-width: 320px) and (max-width: 600px){
+  .skill-section {
+    height: 9rem;
+    width: 100%;
+    margin-left: 0rem;
+    flex-direction: column;
+  }
+  .web {
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+  }
+  .game {
+    margin-left: 0rem;
+  }
+  .web, .game {
+    height: 12rem;
+    width: 90%;
+    margin-left: 5%;
+
+  }
+  .data-section {
+    height: 70rem;
+  }
+  .text {
+    height: 9rem;
+    width: 100%;
+  }
+  .title {
+    width: 100%;
+    height: 2rem;
+  }
+  .desc {
+    height: 100%;
+    width: 100%;
+  }
+  .desc p {
+    margin-top: 0.4rem;
+}
+  .intro-section {
+    height: 28rem;
+  }
 
 }
