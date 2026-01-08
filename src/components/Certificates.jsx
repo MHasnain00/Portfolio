@@ -37,6 +37,7 @@ function Certificates() {
             <div className="img"><img src={MetaReact} alt="React Certificate" /></div>
             <div className="c-name"><h4>Advance React Specialization from Meta</h4></div>
           </div>
+          <div className="spaces"></div>
         </div>
     </>
   )

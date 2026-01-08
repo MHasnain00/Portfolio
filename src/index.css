@@ -57,6 +57,7 @@ button:focus-visible {
   flex-direction: column;
   background-color: rgb(20, 20, 20);
   border-radius: 1rem;
+  border: 1px solid rgb(71, 70, 30);
   line-height: 0.4rem;
 }
 .profile-section {
@@ -136,6 +137,7 @@ button:focus-visible {
   flex-direction: column;
   background-color: rgb(20, 20, 20);
   border-radius: 1rem;
+  border: 1px solid rgb(71, 70, 30);
 }
 .title-bar {
   width: 100%;
@@ -226,21 +228,25 @@ a {
     display: none;
   }
   .mobile {
-    width: 100vw;
-    height: 4rem;
+    width: 98vw;
+    height: 3rem;
     display: flex;
     position: fixed;
     bottom: 0;
     background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    margin-left: 1vw;
   }
   .mobile-nav {
     width: 100%;
     height: 100%;
   }
   .data-section {
+    z-index: -2;
     margin: 0.2rem;
     height: 95vh;
     width: 90vw;
+    border-color: black;
   }
   .contact {
   width: 100%;

@@ -72,7 +72,9 @@ function Projects() {
                 <FaUnity className='icon skill-icon'/>
               </div>
             </div>
+            <div className="space"></div>
           </div>
+        
     </>
   )
 }

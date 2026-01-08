@@ -66,3 +66,40 @@ ul {
   width: 1.5rem;
   height: 1.5rem;
 }
+@media (min-width: 320px) and (max-width: 600px) {
+.li {
+  height: 68%;
+  line-height: 1.17rem;
+}
+.skills-title {
+  margin: 0;
+}
+.space {
+  height: 5rem;
+  width: 100%;
+}
+.g-title {
+  margin-top: 0rem;
+}
+.p-title {
+  margin-left: 1.5rem;
+}
+.projects {
+  height: 80%;
+}
+.skills-zone {
+  width: 80%;
+  height: 70%;
+  margin-left: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+ul {
+  margin-left: 0;
+
+}
+li {
+  margin-right: 0.7rem;
+}
+}
