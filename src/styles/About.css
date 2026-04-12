@@ -84,6 +84,11 @@
   .game {
     margin-left: 0rem;
   }
+  .gmail, .ph {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
   .web, .game {
     height: 12rem;
     width: 90%;

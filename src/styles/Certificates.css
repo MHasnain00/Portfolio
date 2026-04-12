@@ -35,8 +35,17 @@ h4 {
   display: none;
 }
 @media (min-width: 320px) and (max-width: 600px) {
+  .cert {
+    align-items: center;
+    justify-content: center;
+  }
   .blocks {
     margin-top: 0.5rem;
+    width: 90%;
+    height: 10.8rem;
+  }
+  .img {
+    width: 100%;
   }
   .spaces {
     display: block;

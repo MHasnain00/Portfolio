@@ -76,3 +76,26 @@
 .dae, .matric, .bsse {
   margin: 0.7rem 0rem 0rem 0rem;
 }
+@media (min-width: 320px) and (max-width: 600px) {
+.line1 {
+  height: 1%;
+}
+.line2 {
+  height: 15.1%;
+}
+.line3 {
+  height: 18.3%;
+}
+.line4 {
+  height: 0.9%;
+}
+.exp-icon {
+  margin-top: 8.5rem;
+}
+
+
+
+
+
+
+}

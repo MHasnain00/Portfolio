@@ -246,7 +246,7 @@ a {
     margin: 0.2rem;
     height: 95vh;
     width: 90vw;
-    border-color: black;
+    /* border-color: gray; */
   }
   .contact {
   width: 100%;

@@ -7,6 +7,7 @@ import { IoLogoReact } from "react-icons/io5";
 import { FaPython } from "react-icons/fa";
 import { TbBrandCpp } from "react-icons/tb";
 import { FaUnity } from "react-icons/fa6";
+import { PiFileCSharp } from "react-icons/pi";
 
 function Projects() {
 
@@ -44,32 +45,36 @@ function Projects() {
             </div>
             <div className="skills-zone">
               <div className="html skill">
-                <h4>HTML</h4>
                 <TiHtml5  className='icon skill-icon'/>
+                <h4>HTML</h4>
               </div>
               <div className="css skill">
-                <h4>CSS</h4>
                 <IoLogoCss3  className='icon skill-icon'/>
+                <h4>CSS</h4>
               </div>
               <div className="js skill">
-                <h4>JavaScript</h4>
                 <TbBrandJavascript  className='icon skill-icon'/>
+                <h4>JavaScript</h4>
               </div>
               <div className="react skill">
-                <h4>React</h4>
                 <IoLogoReact  className='icon skill-icon'/>
+                <h4>React</h4>
               </div>
               <div className="py skill">
-                <h4>Python</h4>
                 <FaPython  className='icon skill-icon'/>
+                <h4>Python</h4>
               </div>
               <div className="cpp skill">
-                <h4>C++</h4>
                 <TbBrandCpp  className='icon skill-icon'/>
+                <h4>C++</h4>
               </div>
               <div className="unity skill">
-                <h4>Unity</h4>
                 <FaUnity className='icon skill-icon'/>
+                <h4>Unity</h4>
+              </div>
+              <div className="C# skill">
+                <PiFileCSharp className='icon skill-icon'/>
+                <h4>C#</h4>
               </div>
             </div>
             <div className="space"></div>

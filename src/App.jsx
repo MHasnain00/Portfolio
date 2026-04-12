@@ -44,7 +44,7 @@ function App() {
             <div className="icon">
               <IoIosMail/>
             </div>
-            <div className='txt'><p>MuhammadHasnainGct@gmail.com</p></div>
+            <div className='txt gmail'><p>MuhammadHasnainGct@gmail.com</p></div>
           </div>
 {/* Role */}
           <div className="contact">
