@@ -1,4 +1,4 @@
-// Assets
+// App.jsx
 import './App.css'
 import myImage from './Assets/myimage.jpg';
 import About from './components/About';
@@ -6,93 +6,153 @@ import Resume from './components/Resume';
 import Projects from './components/Projects'
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
-// Hooks
 import { IoIosMail } from "react-icons/io";
-import { FaLocationDot, FaLaptopCode } from "react-icons/fa6";
+import { FaLocationDot, FaBars, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
 import { MdOutlinePhoneIphone } from "react-icons/md";
-import { Route, Routes, Link, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Route, Routes, Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [pageTitle, setPageTitle] = useState("About")
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const location = useLocation();
+
+  const navLinks = [
+    { to: "/about", label: "About" },
+    { to: "/resume", label: "Resume" },
+    { to: "/projects", label: "Projects" },
+    { to: "/certificates", label: "Certificates" },
+    { to: "/contact", label: "Contact" }
+  ]
+
+  const currentPage = navLinks.find(link => link.to === location.pathname)?.label || "About";
+
+  useEffect(() => {
+    setSidebarOpen(false)
+    setMobileNavOpen(false)
+    window.scrollTo(0, 0)
+  }, [location])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (mobileNavOpen &&!e.target.closest('.mobile-nav-toggle') &&!e.target.closest('.mobile-nav-dropdown')) {
+        setMobileNavOpen(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [mobileNavOpen])
 
   return (
     <>
-      <div className="mobile">
-        <nav className='mobile-nav'>
-        <Link to="/about" onClick={() => {setPageTitle("About")}} className={`link ${pageTitle === "About"? "active" : ""}`}>About</Link>
-        <Link to="/resume" onClick={() => setPageTitle("Resume")}  className={`link ${pageTitle === "Resume"? "active" : ""}`}>Resume</Link>
-        <Link to="/projects" onClick={() => {setPageTitle("Projects")}} className={`link ${pageTitle === "Projects"? "active" : ""}`}>Projects</Link>
-        <Link to="/certificates" onClick={() => setPageTitle("Certificates")} className={`link ${pageTitle === "Certificates"? "active" : ""}`}>Certificates</Link>
-        <Link to="/contact" onClick={() => setPageTitle("Contact")} className={`link ${pageTitle === "Contact"? "active" : ""}`}>Contact</Link>
-        </nav>
-      </div>
-    
-    <div className="main-container">
-      <div className="intro-section">
-        <div className="profile-section">
-          <div className="image-dev">
-            <img src={myImage} alt="My Image" />
+      <button
+        className="sidebar-toggle"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Toggle sidebar"
+      >
+        {sidebarOpen? <FaTimes /> : <FaBars />}
+      </button>
+
+      <aside className={`sidebar ${sidebarOpen? 'open' : ''}`}>
+        <div className="sidebar-content">
+          <div className="profile">
+            <img src={myImage} alt="Muhammad Hasnain" />
+            <h2>Muhammad Hasnain</h2>
+            <p className="tagline">Front-End Developer<br/>Unity Game Developer</p>
           </div>
-          <p>Muhammad Hasnain</p>
-          <button><a href="https://www.linkedin.com/in/mhasnain000/" target='_blank'>View Profile</a></button>
-          <div className="line"></div>
-        </div>
-        <div className="contact-section">
-          <div className="contact">
-{/* Gmail */}
-            <div className="icon">
-              <IoIosMail/>
-            </div>
-            <div className='txt gmail'><p>MuhammadHasnainGct@gmail.com</p></div>
-          </div>
-{/* Role */}
-          <div className="contact">
-            <div className="icon">
-              <FaLaptopCode />
-            </div>
-            <div className='txt'><p>Front-End Developer | Unity Game Developer</p></div>
-          </div>
-          <div className="contact">
-{/* Phone Number */}
-            <div className="icon">
+
+          <div className="sidebar-divider"></div>
+
+          <div className="sidebar-contact">
+            <a href="mailto:MuhammadHasnainGct@gmail.com" className="contact-row">
+              <IoIosMail />
+              <span>MuhammadHasnainGct@gmail.com</span>
+            </a>
+            <div className="contact-row">
               <MdOutlinePhoneIphone />
+              <span>+92 304 8412972</span>
             </div>
-            <div className='txt ph'><p>+92304-8412972</p></div>
-          </div>
-{/* Address */}
-          <div className="contact">
-            <div className="icon">
+            <div className="contact-row">
               <FaLocationDot />
+              <span>Rahim Yar Khan, Punjab</span>
             </div>
-            <div className='txt'><p>Khan Bela Rahim Yar Khan Pubjab Pakistan</p></div>
+          </div>
+
+          <div className="sidebar-divider"></div>
+
+          <div className="social-links">
+            <a href="https://www.linkedin.com/in/mhasnain000/" target='_blank' rel="noopener noreferrer">
+              <FaLinkedin />
+            </a>
+            <a href="https://github.com/" target='_blank' rel="noopener noreferrer">
+              <FaGithub />
+            </a>
           </div>
         </div>
-      </div>
-      <div className="data-section">
-        <div className="title-bar">
-          <div className="selected-tab"><p>{pageTitle}</p></div>
-          <div className="NavBar">
-            <nav>
-            <Link to="/about" onClick={() => {setPageTitle("About")}} className={`link ${pageTitle === "About"? "active" : ""}`}>About</Link>
-            <Link to="/resume" onClick={() => setPageTitle("Resume")}  className={`link ${pageTitle === "Resume"? "active" : ""}`}>Resume</Link>
-            <Link to="/projects" onClick={() => {setPageTitle("Projects")}} className={`link ${pageTitle === "Projects"? "active" : ""}`}>Projects</Link>
-            <Link to="/certificates" onClick={() => setPageTitle("Certificates")} className={`link ${pageTitle === "Certificates"? "active" : ""}`}>Certificates</Link>
-            <Link to="/contact" onClick={() => setPageTitle("Contact")} className={`link ${pageTitle === "Contact"? "active" : ""}`}>Contact</Link>
+      </aside>
+
+      <main className="main-content">
+        <header className="top-header">
+          <div className="header-inner">
+            <h1 className="current-page">{currentPage}</h1>
+
+            {/* Desktop Nav - 1280px+ */}
+            <nav className="main-nav">
+              {navLinks.map(link => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`nav-link ${currentPage === link.label? "active" : ""}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
+
+            {/* Mobile/Small Laptop Nav Button - <1280px */}
+            <button
+              className="mobile-nav-toggle"
+              onClick={(e) => {
+                e.stopPropagation()
+                e.preventDefault()
+                setMobileNavOpen(!mobileNavOpen)
+              }}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileNavOpen? <FaTimes /> : <FaBars />}
+            </button>
           </div>
+
+          {/* Dropdown Nav - <1280px */}
+          <nav className={`mobile-nav-dropdown ${mobileNavOpen? 'open' : ''}`}>
+            {navLinks.map(link => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`nav-link ${currentPage === link.label? "active" : ""}`}
+                onClick={() => setMobileNavOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </header>
+
+        <div className="page-container">
+          <Routes>
+            <Route path='/' element={<About />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/resume' element={<Resume />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/certificates' element={<Certificates />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
         </div>
-                      
-        <Routes>
-          <Route path='/' element={<Navigate to={"/about"}/>}></Route>
-          <Route path='/about' element={<About />}></Route>
-          <Route path='/resume' element={<Resume />}></Route>
-          <Route path='/projects' element= {<Projects />}></Route>
-          <Route path='/certificates' element= {<Certificates />}></Route>
-          <Route path='/contact' element= {<Contact />}></Route>
-        </Routes>
-        </div>
-      </div>
+      </main>
+
+      {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)}></div>}
     </>
   )
 }

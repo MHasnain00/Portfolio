@@ -1,101 +1,132 @@
+/* Resume.css - Compact Timeline */
 .resume {
-  height: 100%;
-  width: 100%;
+  padding: 1rem 1.5rem 1.5rem;
 }
-.education {
-  height: 100%;
-  /* height: 74%; */
-  width: 100%; 
-  display: flex;
-}
-.side-line {
-  height: 90%;
-  width: 3rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 
+.education {
+  display: flex;
+  gap: 1.2rem;
+  position: relative;
 }
-.vert-line {
-  height: 41%;
-  width: 0.08rem;
-  background-color: rgb(59, 57, 19);
-  display: inline;
+
+.side-line {
+  width: 2.5rem;
+  position: relative;
+  flex-shrink: 0;
 }
+
 .edu-icon, .exp-icon {
-  margin: 0px;
+  position: relative;
+  z-index: 3;
+  background-color: var(--bg-primary);
+  margin: 0;
 }
-.exp-icon {
-  margin-top: 4.1rem;
+
+.vert-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: rgb(59, 57, 19);
+  top: 2rem;
+  bottom: 0;
+  z-index: 1;
 }
+
 .line-circle {
-  width: 0.8rem;
-  height: 0.8rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 50%;
   background-color: rgb(110, 110, 43);
-  display: inline;
+  z-index: 2;
+}
 
+/* Tightened circle positions to match h4 elements */
+.line-circle:nth-of-type(1) { top: 3.2rem; }   /* BSSE */
+.line-circle:nth-of-type(2) { top: 7.5rem; }   /* DAE */
+.line-circle:nth-of-type(3) { top: 11.8rem; }  /* Matric */
+.line-circle:nth-of-type(4) { top: 18.8rem; }  /* Experience */
+
+.exp-icon {
+  position: absolute;
+  top: 16.2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 .content {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 0.2rem;
+  flex: 1;
+  text-align: left;
 }
-.line1 {
-  height: 2.6%;
-}
-.line2 {
-  height: 19.3%;
-}
-.line3 {
-  height: 19.5%;
-}
-.line4 {
-  height: 2.5%;
-}
+
 .content h2 {
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0.5rem 0 1rem;
   text-decoration: underline;
   text-decoration-color: yellow;
   text-decoration-thickness: 0.09rem;
+  text-align: left;
+  font-size: 1.4rem;
 }
+
+.content h4 {
+  margin: 1rem 0 0.2rem;
+  font-size: 1.05rem;
+  text-align: left;
+  line-height: 1.3;
+}
+
 .year {
-  margin: 0.3rem 0rem 0rem 0rem;
+  margin: 0 0 0.3rem;
   color: rgb(133, 133, 37);
+  font-size: 0.85rem;
+  text-align: left;
 }
+
 .edu-details {
   color: rgb(202, 200, 200);
+  line-height: 1.4;
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
   text-align: left;
-  margin: 0.4rem 1rem 0rem 0rem;
-}
-.dae, .matric, .bsse {
-  margin: 0.7rem 0rem 0rem 0rem;
-}
-@media (min-width: 320px) and (max-width: 600px) {
-.line1 {
-  height: 1%;
-}
-.line2 {
-  height: 15.1%;
-}
-.line3 {
-  height: 18.3%;
-}
-.line4 {
-  height: 0.9%;
-}
-.exp-icon {
-  margin-top: 8.5rem;
 }
 
-
-
-
-
-
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .education {
+    gap: 0.8rem;
+  }
+  
+  .side-line {
+    width: 2rem;
+  }
+  
+  .resume {
+    padding: 0.75rem;
+  }
+  
+  .content h2 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.8rem;
+  }
+  
+  .content h4 {
+    margin: 0.8rem 0 0.2rem;
+    font-size: 1rem;
+  }
+  
+  .edu-details {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+  }
+  
+  /* Recalibrate circles for mobile */
+  .line-circle:nth-of-type(1) { top: 3rem; }
+  .line-circle:nth-of-type(2) { top: 7.8rem; }
+  .line-circle:nth-of-type(3) { top: 12.6rem; }
+  .line-circle:nth-of-type(4) { top: 20.5rem; }
+  .exp-icon { top: 18rem; }
 }
