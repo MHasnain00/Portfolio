@@ -21,8 +21,8 @@ const Projects = () => {
         { icon: <FaJs />, name: "JavaScript" },
         { icon: <BsGraphUp />, name: "TradingView" },
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00/crypto-tracker.git",
+      live: "https://crypto.hasnaindev.site"
     },
     {
       id: 2,
@@ -34,8 +34,8 @@ const Projects = () => {
         { icon: <FaCss3Alt />, name: "CSS3" },
         { icon: <FaJs />, name: "JavaScript" }
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00/Portfolio.git",
+      live: "https://hasnaindev.site"
     },
     {
       id: 3,
@@ -46,8 +46,8 @@ const Projects = () => {
         { icon: <SiUnity />, name: "Unity" },
         { icon: <TbBrandCSharp />, name: "C#" }
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00",
+      live: "https://mhasnain000.itch.io/3dfps"
     },
     {
       id: 4,
@@ -58,8 +58,8 @@ const Projects = () => {
         { icon: <SiUnity />, name: "Unity" },
         { icon: <TbBrandCSharp />, name: "C#" }
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00",
+      live: "https://mhasnain000.itch.io/marstrip"
     },
     {
       id: 5,
@@ -70,8 +70,8 @@ const Projects = () => {
         { icon: <SiUnity />, name: "Unity" },
         { icon: <TbBrandCSharp />, name: "C#" }
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00",
+      live: "https://mhasnain000.itch.io/2d-space-challenger"
     },
     {
       id: 6,
@@ -82,8 +82,8 @@ const Projects = () => {
         { icon: <SiUnity />, name: "Unity" },
         { icon: <TbBrandCSharp />, name: "C#" }
       ],
-      github: "https://github.com/",
-      live: "https://example.com"
+      github: "https://github.com/MHasnain00",
+      live: "https://mhasnain000.itch.io/maze-3d"
     },
 
     
@@ -97,9 +97,9 @@ const Projects = () => {
             <div className="project-image">
               <img src={project.image} alt={project.title} />
               <div className="project-overlay">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="GitHub">
+                {project.id === 1 || project.id === 2 ? <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="GitHub">
                   <FaGithub />
-                </a>
+                </a>: ""}
                 <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="Live Demo">
                   <FaExternalLinkAlt />
                 </a>
