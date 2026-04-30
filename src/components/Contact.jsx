@@ -1,7 +1,7 @@
 // Contact.jsx
 import { useState } from 'react';
 import { IoIosMail } from "react-icons/io";
-import { FaLocationDot, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { FaLocationDot, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { FiSend } from "react-icons/fi";
 
@@ -86,9 +86,6 @@ const Contact = () => {
               </a>
               <a href="https://www.linkedin.com/in/mhasnain000/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
-              </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FaTwitter />
               </a>
             </div>
           </div>
