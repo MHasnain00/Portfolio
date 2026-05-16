@@ -176,3 +176,25 @@ button:hover { background: rgba(212, 175, 55, 0.2); border-color: var(--accent);
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 ::selection { background: var(--accent-glow); color: var(--text); }
+.header-inner {
+  position: relative; /* creates stacking context */
+  width: 100%;
+  min-height: 64px; /* give it height or LiquidEther has nothing to fill */
+  overflow: hidden;
+  border-radius: 12px; /* optional */
+}
+
+/* Make sure text is readable over LiquidEther */
+.current-page,
+.main-nav .nav-link,
+.mobile-nav-toggle {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  position: relative; /* ensures it sits above bg */
+}
+
+.main-nav .nav-link.active {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+}
