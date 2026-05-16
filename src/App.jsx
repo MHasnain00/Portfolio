@@ -36,13 +36,12 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
         mobileNavOpen &&
-        !e.target.closest(".mobile-nav-toggle") &&
-        !e.target.closest(".mobile-nav-dropdown")
+       !e.target.closest(".mobile-nav-toggle") &&
+       !e.target.closest(".mobile-nav-dropdown")
       ) {
         setMobileNavOpen(false);
       }
@@ -53,15 +52,44 @@ function App() {
 
   return (
     <>
+      {/* Global background - renders once, stays behind everything */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }}>
+        <LiquidEther
+          colors={['#5227FF', '#FF9FFC', '#B497CF']}
+          mouseForce={20}
+          cursorSize={75}
+          isViscous
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo
+          autoSpeed={1}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
+
       <button
         className="sidebar-toggle"
         onClick={() => setSidebarOpen(!sidebarOpen)}
         aria-label="Toggle sidebar"
       >
-        {sidebarOpen ? <FaTimes /> : <FaBars />}
+        {sidebarOpen? <FaTimes /> : <FaBars />}
       </button>
 
-      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+      <aside className={`sidebar ${sidebarOpen? "open" : ""}`}>
         <div className="sidebar-content">
           <div className="profile">
             <img src={myImage} alt="Muhammad Hasnain" />
@@ -119,20 +147,18 @@ function App() {
           <div className="header-inner">
             <h1 className="current-page">{currentPage}</h1>
 
-            {/* Desktop Nav - 1280px+ */}
             <nav className="main-nav">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`nav-link ${currentPage === link.label ? "active" : ""}`}
+                  className={`nav-link ${currentPage === link.label? "active" : ""}`}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Mobile/Small Laptop Nav Button - <1280px */}
             <button
               className="mobile-nav-toggle"
               onClick={(e) => {
@@ -142,17 +168,16 @@ function App() {
               }}
               aria-label="Toggle navigation menu"
             >
-              {mobileNavOpen ? <FaTimes /> : <FaBars />}
+              {mobileNavOpen? <FaTimes /> : <FaBars />}
             </button>
           </div>
 
-          {/* Dropdown Nav - <1280px */}
-          <nav className={`mobile-nav-dropdown ${mobileNavOpen ? "open" : ""}`}>
+          <nav className={`mobile-nav-dropdown ${mobileNavOpen? "open" : ""}`}>
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`nav-link ${currentPage === link.label ? "active" : ""}`}
+                className={`nav-link ${currentPage === link.label? "active" : ""}`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 {link.label}
@@ -161,35 +186,15 @@ function App() {
           </nav>
         </header>
 
-        <div
-          className="page-container"
-          style={{ width: "100%", minHeight: "100vh", position: "relative" }}
-        >
-          {/* Background effect */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 0,
-            }}
-          >
-            <LiquidEther />
-          </div>
-
-          {/* Foreground content */}
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/certificates" element={<Certificates />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </div>
+        <div className="page-container">
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/certificates" element={<Certificates />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </div>
       </main>
 
