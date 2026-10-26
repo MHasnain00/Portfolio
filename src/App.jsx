@@ -27,8 +27,7 @@ function App() {
     { to: "/contact", label: "Contact" },
   ];
 
-  const currentPage =
-    navLinks.find((link) => link.to === location.pathname)?.label || "About";
+  const currentPage = navLinks.find((link) => link.to === location.pathname)?.label || "About";
 
   useEffect(() => {
     setSidebarOpen(false);
@@ -52,34 +51,7 @@ function App() {
 
   return (
     <>
-      {/* Global background - renders once, stays behind everything */}
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: -1,
-        pointerEvents: 'none'
-      }}>
-        <LiquidEther
-          colors={['#5227FF', '#FF9FFC', '#B497CF']}
-          mouseForce={20}
-          cursorSize={75}
-          isViscous
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo
-          autoSpeed={1}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        />
-      </div>
+      <div style={{position: 'fixed',inset: 0,width: '100vw',height: '100vh',zIndex: -1,pointerEvents: 'none'}}><LiquidEther/></div>
 
       <button
         className="sidebar-toggle"
