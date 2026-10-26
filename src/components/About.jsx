@@ -2,10 +2,8 @@ import '../styles/About.css'
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { IoGameControllerSharp } from "react-icons/io5";
 
-
 function About() {
 
-  
   return (
     <>
       <div className="intro">

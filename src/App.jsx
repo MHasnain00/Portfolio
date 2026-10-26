@@ -1,4 +1,3 @@
-// App.jsx
 import "./App.css";
 import myImage from "./Assets/myimage.jpg";
 import About from "./components/About";
@@ -26,7 +25,6 @@ function App() {
     { to: "/certificates", label: "Certificates" },
     { to: "/contact", label: "Contact" },
   ];
-
   const currentPage = navLinks.find((link) => link.to === location.pathname)?.label || "About";
 
   useEffect(() => {
@@ -53,11 +51,7 @@ function App() {
     <>
       <div style={{position: 'fixed',inset: 0,width: '100vw',height: '100vh',zIndex: -1,pointerEvents: 'none'}}><LiquidEther/></div>
 
-      <button
-        className="sidebar-toggle"
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        aria-label="Toggle sidebar"
-      >
+      <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Toggle sidebar">
         {sidebarOpen? <FaTimes /> : <FaBars />}
       </button>
 
@@ -72,14 +66,9 @@ function App() {
               Unity Game Developer
             </p>
           </div>
-
           <div className="sidebar-divider"></div>
-
           <div className="sidebar-contact">
-            <a
-              href="mailto:MuhammadHasnainGct@gmail.com"
-              className="contact-row"
-            >
+            <a href="mailto:MuhammadHasnainGct@gmail.com" className="contact-row">
               <IoIosMail />
               <span>MuhammadHasnainGct@gmail.com</span>
             </a>
@@ -92,24 +81,10 @@ function App() {
               <span>Rahim Yar Khan, Punjab</span>
             </div>
           </div>
-
           <div className="sidebar-divider"></div>
-
           <div className="social-links">
-            <a
-              href="https://www.linkedin.com/in/mhasnain000/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-            </a>
+            <a href="https://www.linkedin.com/in/mhasnain000/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
           </div>
         </div>
       </aside>
@@ -118,46 +93,31 @@ function App() {
         <header className="top-header">
           <div className="header-inner">
             <h1 className="current-page">{currentPage}</h1>
-
             <nav className="main-nav">
               {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`nav-link ${currentPage === link.label? "active" : ""}`}
-                >
+                <Link key={link.to} to={link.to} className={`nav-link ${currentPage === link.label? "active" : ""}`}>
                   {link.label}
                 </Link>
               ))}
             </nav>
-
-            <button
-              className="mobile-nav-toggle"
+            <button className="mobile-nav-toggle" aria-label="Toggle navigation menu"
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
                 setMobileNavOpen(!mobileNavOpen);
-              }}
-              aria-label="Toggle navigation menu"
-            >
+              }}>
               {mobileNavOpen? <FaTimes /> : <FaBars />}
             </button>
           </div>
-
           <nav className={`mobile-nav-dropdown ${mobileNavOpen? "open" : ""}`}>
             {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`nav-link ${currentPage === link.label? "active" : ""}`}
-                onClick={() => setMobileNavOpen(false)}
-              >
+              <Link key={link.to} to={link.to} className={`nav-link ${currentPage === link.label? "active" : ""}`}
+                onClick={() => setMobileNavOpen(false)}>
                 {link.label}
               </Link>
             ))}
           </nav>
         </header>
-
         <div className="page-container">
           <Routes>
             <Route path="/" element={<About />} />
@@ -171,10 +131,7 @@ function App() {
       </main>
 
       {sidebarOpen && (
-        <div
-          className="sidebar-overlay"
-          onClick={() => setSidebarOpen(false)}
-        ></div>
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)}></div>
       )}
     </>
   );

@@ -1,7 +1,6 @@
-// Projects.jsx
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiMongodb, SiFirebase, SiUnity } from "react-icons/si";
+import { FaReact, FaCss3Alt, FaJs } from "react-icons/fa";
+import { SiUnity } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { BsGraphUp } from "react-icons/bs";
 import FPS3D from"../Assets/3DFPS.png";
@@ -105,17 +104,12 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-            
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              
               <div className="project-tech">
                 {project.tech.map((tech, index) => (
-                  <div key={index} className="tech-item">
-                    {tech.icon}
-                    <span>{tech.name}</span>
-                  </div>
+                  <div key={index} className="tech-item">{tech.icon} <span> {tech.name}</span></div>
                 ))}
               </div>
             </div>

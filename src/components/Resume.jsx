@@ -1,6 +1,4 @@
-// Resume.jsx
 import { FaGraduationCap, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
-
 const Resume = () => {
   const education = [
     {
@@ -35,8 +33,6 @@ const Resume = () => {
   return (
     <section className="resume-section">
       <div className="resume-container">
-        
-        {/* Education Section */}
         <div className="resume-block">
           <h2 className="section-title">
             <FaGraduationCap />
@@ -62,14 +58,11 @@ const Resume = () => {
             ))}
           </div>
         </div>
-
-        {/* Experience Section */}
         <div className="resume-block">
           <h2 className="section-title">
             <FaBriefcase />
             Experience
           </h2>
-          
           <div className="timeline">
             {experience.map((exp, index) => (
               <div key={index} className="timeline-item">
@@ -77,10 +70,7 @@ const Resume = () => {
                 <div className="timeline-content">
                   <div className="timeline-header">
                     <h3>{exp.role}</h3>
-                    <span className="timeline-date">
-                      <FaCalendarAlt />
-                      {exp.duration}
-                    </span>
+                    <span className="timeline-date"><FaCalendarAlt />{exp.duration}</span>
                   </div>
                   <h4 className="timeline-subtitle">{exp.company}</h4>
                   <p className="timeline-desc">{exp.description}</p>
@@ -89,7 +79,6 @@ const Resume = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
